@@ -16,4 +16,4 @@
         enabled: yes # systemctl start <service>
 
 # ansible all -i inventory -m ping => can this file reach to server or not
-# ansible <host-to-playbook-run-on> -i inventory <playbook-name>
+# ansible-playbook <host-to-playbook-run-on> -i inventory <playbook-name>
