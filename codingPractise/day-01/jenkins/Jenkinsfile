@@ -1,0 +1,19 @@
+pipeline {
+
+    agent any 
+    # means in which machine to run this code any or specific or none
+
+    stages{
+        stage('checkout'){
+            steps{
+                git branch: 'main',
+                url: 'https://github.com/Pathnex/sample-java-app.git'
+            }
+        }
+        stage('List Files'){
+            steps {
+                sh 'ls -la'
+            }
+        }
+    }
+}
