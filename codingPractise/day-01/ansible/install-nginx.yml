@@ -1,0 +1,19 @@
+---
+- name: Install and start nginx on ec2-server
+  hosts: all
+  become: yes # like giving it sudo permission
+
+  tasks:
+    - name: install nginx
+      yum: # package manager
+        name: nginx
+        state: present # final desired state if not present then install it
+
+    - name: Enable nginx
+      service:
+        name: nginx # systemctl status <service>
+        state: started # desired state equivalent to systemctl start <service>
+        enabled: yes # systemctl start <service>
+
+# ansible all -i inventory -m ping => can this file reach to server or not
+# ansible-playbook <host-to-playbook-run-on> -i inventory <playbook-name>

@@ -1,0 +1,26 @@
+stages:
+  - build
+  - test
+  - package
+
+maven-build:
+  stage: build
+  image: maven:3.8.1-jdk-17
+  scripts:
+    - git clone https://github.com/Pathnex/sample-java-app.git
+    - cd sample-java-app
+    - mvn clean build
+
+maven-test:
+  stage: test
+  image: maven:3.8.1-jdk-17
+  scripts:
+    - cd sample-java-app
+    - mvn test
+
+maven-package:
+  stage: package
+  image: maven:3.8.1-jdk-17
+  scripts:
+    - cd sample-java-app
+    - mvn package

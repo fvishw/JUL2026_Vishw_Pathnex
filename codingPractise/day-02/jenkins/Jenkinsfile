@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    // tools that we have predefined in tool section for selection and version name must be accordingly
+    tools {
+        mvn "Maven-3.8.1"
+        jdk "JDK-17"
+    }
+    stages{
+        stage('Checkout'){
+            steps{
+                git url = "https://github.com/Pathnex/sample-java-app.git"
+            }
+        }
+        stage('Compile'){
+            steps{
+                sh "mvn clean compile"
+            }
+        }
+        stage('Test'){
+            steps{
+                sh "mvn test"
+            }
+        }
+        stage('Package'){
+            steps{
+                sh 'mvn package'
+            }
+        }
+    }
+}
