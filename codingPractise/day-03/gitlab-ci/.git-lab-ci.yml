@@ -1,0 +1,21 @@
+stages:
+  - install
+  - test
+  - build
+
+image: node:22
+
+node-install:
+  stage: install
+  script:
+    - npm i
+
+run-tests:
+  stage: test
+  script:
+    - npm test
+
+build-image:
+  stage: build
+  script:
+    - npm run build

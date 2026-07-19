@@ -1,0 +1,9 @@
+- name: create user fvishw with bash as default shell
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: create user fvishw with default shell as bash
+      user:
+        name: fvishw
+        shell: /bin/bash
